@@ -1,23 +1,23 @@
-import logo from "./logo.svg";
-import "@aws-amplify/ui-react/styles.css";
-import {
-  withAuthenticator,
-  Button,
-  Heading,
-  Image,
-  View,
-  Card,
-} from "@aws-amplify/ui-react";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import { Button, Box, Stack } from "@mui/material";
+import Sidebar from "./components/Sidebar";
+import Feed from "./components/Feed";
+import Rightbar from "./components/Rightbar";
+import Navbar from "./components/Navbar";
 
 function App({ signOut }) {
   return (
-    <View className="App">
-      <Card>
-        <Image src={logo} className="App-logo" alt="logo" />
-        <Heading level={1}>We now have Auth!</Heading>
-      </Card>
-      <Button onClick={signOut}>Sign Out</Button>
-    </View>
+    <div className="App">
+      {/* <Button onClick={signOut}>Sign Out</Button> */}
+      <Box>
+        <Navbar />
+        <Stack direction="row" spacing={2} justifyContent="space-between">
+          <Sidebar />
+          <Feed />
+          <Rightbar />
+        </Stack>
+      </Box>
+    </div>
   );
 }
 
